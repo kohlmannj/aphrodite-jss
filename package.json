@@ -56,9 +56,11 @@
     "pre-commit": "^1.2.0",
     "webpack": "^2.5.1"
   },
-  "dependencies": {
+  "peerDependencies": {
     "jss": "^7.1.2",
-    "jss-preset-default": "^2.0.0",
+    "jss-preset-default": "^2.0.0"
+  },
+  "dependencies": {
     "murmurhash-js": "^1.0.0"
   },
   "lint-staged": {
