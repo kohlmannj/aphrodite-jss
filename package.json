@@ -12,7 +12,7 @@
     "lint": "eslint ./src ./tests ./benchmark ./*.js",
     "lint:staged": "lint-staged",
     "prepublish": "npm run all",
-    "postinstall": "install-self-peers -- --ignore-scripts"
+    "peerinstall": "install-self-peers -- --ignore-scripts"
   },
   "author": {
     "name": "Oleg Slobodskoi",
