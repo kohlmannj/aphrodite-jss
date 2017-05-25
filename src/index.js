@@ -7,6 +7,7 @@ const isNotFalsy = val => !!val
 const getClassName = rule => rule.className
 const generateClassName = (name, str) => `${name}-${hash(name + str + meta)}`
 const mergeStyles = (style, rule) => ({...style, ...rule.style})
+const defaultOptions = {insertionPoint: meta}
 
 export default function aphroditeJss(jss, options) {
   const renderSheet = () => (
@@ -57,4 +58,6 @@ export default function aphroditeJss(jss, options) {
   }
 }
 
-export const {css, StyleSheet, reset, toString, version} = aphroditeJss(create(preset()))
+export const {css, StyleSheet, reset, toString, version} = aphroditeJss(
+  create(preset()), defaultOptions
+)
