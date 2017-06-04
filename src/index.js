@@ -35,8 +35,8 @@ export default function aphroditeJss(jss, options = {insertionPoint: meta}) {
 
   function register(styles, addImmediately = false) {
     const {classes, globals} = Object.keys(styles).reduce((map, name) => {
-      // If `name` is a word, i.e. not a special JSS property like `@import`, add it to map.classes
-      if (name.match(/^\w+$/) !== null) {
+      // If `name` does not start with `@`, like `'@import`, add it to map.classes
+      if (name.indexOf('@') !== 0) {
         map.classes[name] = {
           className: generateClassName(name, JSON.stringify(styles[name])),
           style: styles[name]
