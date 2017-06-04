@@ -1,7 +1,7 @@
 {
   "name": "@kohlmannj/aphrodite-jss",
   "description": "Aphrodite-like API on top of JSS.",
-  "version": "1.2.0-beta.0",
+  "version": "1.2.0-beta.1",
   "scripts": {
     "all": "npm run lint && npm run build",
     "clean": "rm -fr ./lib/*",

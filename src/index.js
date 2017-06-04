@@ -9,12 +9,12 @@ const generateClassName = (name, str) => `${name}-${hash(name + str + meta)}`
 const mergeStyles = (style, rule) => ({...style, ...rule.style})
 
 export default function aphroditeJss(jss, options = {insertionPoint: meta}) {
-  const renderSheet = (styles = null) => (
-    jss.createStyleSheet(styles, {meta, ...options}).attach()
+  const renderSheet = (styles = null, index = 0) => (
+    jss.createStyleSheet(styles, {meta, index, ...options}).attach()
   )
 
   let globalSheet
-  let sheet = renderSheet()
+  let sheet = renderSheet(null, 1)
 
   function css(...rules) {
     // Filter falsy values to allow `css(a, test && c)`.
@@ -52,7 +52,7 @@ export default function aphroditeJss(jss, options = {insertionPoint: meta}) {
     if (Object.keys(globals).length > 0) {
       // Immediately render the globals to globalSheet
       if (typeof globalSheet !== 'object' || globalSheet === null) {
-        globalSheet = renderSheet(globals)
+        globalSheet = renderSheet(globals, 0)
       }
       else {
         globalSheet.addRules(globals)
@@ -75,7 +75,7 @@ export default function aphroditeJss(jss, options = {insertionPoint: meta}) {
     // Detach and re-render the main sheet
     sheet.detach()
     jss.sheets.remove(sheet)
-    sheet = renderSheet()
+    sheet = renderSheet(null, 1)
     // Detach and re-render the global sheet
     // Note: register() will init globalSheet if it needs to
     globalSheet.detach()
@@ -84,7 +84,7 @@ export default function aphroditeJss(jss, options = {insertionPoint: meta}) {
 
   return {
     StyleSheet: {create: register, render: styles => register(styles, true)},
-    toString: () => sheet.toString(),
+    toString: () => `${globalSheet && globalSheet.toString()}${sheet.toString()}`,
     css,
     reset,
     version: __VERSION__
