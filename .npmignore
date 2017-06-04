@@ -4,3 +4,6 @@ tmp
 tests
 .env
 coverage
+.babelrc
+.eslintrc
+webpack.config.js
