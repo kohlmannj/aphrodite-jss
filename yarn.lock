@@ -2306,7 +2306,7 @@ jss-nested@^5.0.0:
   dependencies:
     warning "^3.0.0"
 
-jss-preset-default@^3:
+jss-preset-default@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/jss-preset-default/-/jss-preset-default-3.0.0.tgz#e43ee1ac526f689baf2bfd28ae95a6fdc3a02663"
   dependencies:
@@ -2330,7 +2330,7 @@ jss-vendor-prefixer@^6.0.0:
   dependencies:
     css-vendor "^0.3.8"
 
-jss@^8:
+jss@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/jss/-/jss-8.0.0.tgz#7b6e3153a5045d396245adc3fad5817d00c59457"
   dependencies:
