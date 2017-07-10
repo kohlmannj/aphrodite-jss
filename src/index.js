@@ -8,7 +8,7 @@ const getClassName = rule => rule.className
 const generateClassName = (name, str) => `${name}-${hash(name + str + meta)}`
 const mergeStyles = (style, rule) => ({...style, ...rule.style})
 
-export default function aphroditeJss(jss, options = {insertionPoint: meta}) {
+export default function aphroditeJss(jss, options) {
   const renderSheet = (styles = null, index = 0) => (
     jss.createStyleSheet(styles, {meta, index, ...options}).attach()
   )
