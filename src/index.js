@@ -47,7 +47,7 @@ export default function aphroditeJss(jss, options = {insertionPoint: meta}) {
       }
 
       return map
-    }, {classes: [], globals: {}})
+    }, {classes: {}, globals: {}})
 
     if (Object.keys(globals).length > 0) {
       // Immediately render the globals to globalSheet
@@ -60,12 +60,7 @@ export default function aphroditeJss(jss, options = {insertionPoint: meta}) {
     }
 
     if (addImmediately) {
-      return Object.keys(classes).reduce((renderedClasses, name) => {
-        const {className, style} = classes[name]
-        sheet.addRule(name, style, {className})
-        renderedClasses[name] = className
-        return renderedClasses
-      }, {})
+      return Object.keys(classes).map(name => css(classes[name]))
     }
 
     return classes
@@ -84,7 +79,7 @@ export default function aphroditeJss(jss, options = {insertionPoint: meta}) {
 
   return {
     StyleSheet: {create: register, render: styles => register(styles, true)},
-    toString: () => `${globalSheet && globalSheet.toString()}${sheet.toString()}`,
+    toString: () => `${globalSheet ? `${globalSheet.toString()} ` : ''}${sheet.toString()}`,
     css,
     reset,
     version: __VERSION__
