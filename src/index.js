@@ -60,7 +60,10 @@ export default function aphroditeJss(jss, options = {insertionPoint: meta}) {
     }
 
     if (addImmediately) {
-      return Object.keys(classes).map(name => css(classes[name]))
+      return Object.keys(classes).reduce((cssModulesObj, name) => ({
+        ...cssModulesObj,
+        [name]: css(classes[name]),
+      }), {})
     }
 
     return classes
