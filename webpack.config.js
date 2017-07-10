@@ -39,8 +39,7 @@ module.exports = {
   devtool: 'source-map',
   resolve: {
     alias: {
-      aphroditeJss: path.join(__dirname, 'src'),
-      jss: '@kohlmannj/jss'
+      aphroditeJss: path.join(__dirname, 'src')
     }
   }
 }
