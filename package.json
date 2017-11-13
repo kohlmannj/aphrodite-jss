@@ -54,13 +54,15 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.5.0",
     "json-loader": "^0.5.4",
+    "jss": "^9.2.0",
+    "jss-preset-default": "^4.0.1",
     "lint-staged": "^3.4.2",
-    "pre-commit": "^1.2.0",
-    "webpack": "^2.5.1"
+    "pre-commit": "^1.2.2",
+    "webpack": "^3.8.1"
   },
   "peerDependencies": {
-    "jss": "^8.0.0",
-    "jss-preset-default": "^3.0.0"
+    "jss": ">=8.0.0",
+    "jss-preset-default": ">=3.0.0"
   },
   "dependencies": {
     "murmurhash-js": "^1.0.0"
